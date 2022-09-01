@@ -1,6 +1,6 @@
 <launch>
     <node pkg="norlab_icp_mapper_ros" type="mapper_node" name="mapper_node" output="screen">
-        <remap from="points_in" to="/lslidar_point_cloud"/>
+        <remap from="points_in" to="/lslidar_point_cloud_deskewed"/>
         <param name="robot_frame" value="base_link"/>
         <param name="odom_frame" value="odom"/>
         <param name="icp_config" value="$(find husky_mapping)/params/realtime_icp_config.yaml"/>
@@ -21,4 +21,10 @@
         <param name="beta" value="0.9" />
     </node>
     <node pkg="topic_tools" type="throttle" name="map_throttler" args="messages map 1 map_throttled" output="screen"/>
+
+	<node  name="pcl_deskew_node" pkg="pointcloud_motion_deskew" type="pointcloud2_deskew_node" >    
+		 <remap from="input_point_cloud" to="lslidar_point_cloud" />  
+		 <remap from="output_point_cloud" to="lslidar_point_cloud_deskewed" />  
+	</node>
+
 </launch>
