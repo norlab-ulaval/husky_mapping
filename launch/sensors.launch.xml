@@ -1,5 +1,5 @@
 <launch>
-	<include file="$(find-pkg-share husky_mapping)/launch/imu.launch.xml"/>
+	<include file="$(find-pkg-share husky_mapping)/launch/mti100.launch.xml"/>
 	<include file="$(find-pkg-share husky_mapping)/launch/odom.launch.xml"/>
 	<include file="$(find-pkg-share husky_mapping)/launch/lidar.launch.xml"/>
 </launch>
