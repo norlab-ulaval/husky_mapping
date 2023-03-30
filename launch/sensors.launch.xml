@@ -2,4 +2,10 @@
 	<include file="$(find-pkg-share husky_mapping)/launch/mti100.launch.xml"/>
 	<include file="$(find-pkg-share husky_mapping)/launch/odom.launch.xml"/>
 	<include file="$(find-pkg-share husky_mapping)/launch/lidar.launch.xml"/>
+
+	
+	<node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node" >
+		<remap from="input_point_cloud" to="lslidar_point_cloud" />
+		<remap from="output_point_cloud" to="lslidar_point_cloud_deskewed" />
+	</node>
 </launch>
