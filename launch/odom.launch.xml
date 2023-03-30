@@ -8,6 +8,6 @@
         <param name="wheel_odom_velocity_scale_x" value="0.95" />
         <param name="mag_north_correction_yaw" value="0.0" />
         <param name="publish_odom" value="True" />
-        <param name="odom_topic_name" value="imu_odom" />
+        <param name="odom_topic_name" value="imu_and_wheel_odom" />
     </node>
 </launch>
